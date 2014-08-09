@@ -4,14 +4,14 @@ require "sdl"
 
 class Unit
 
-	def initialize()
+	def initialize(x, y)
 		@SIZE=32
-		@x=0
-		@y=0
+		@x=x
+		@y=y
 	end
 
 	def draw(screen)
-		screen.fill_rect(@x, @y, @SIZE, @SIZE, [128, 255, 255])
+		screen.fill_rect(@x * @SIZE, @y * @SIZE, @SIZE, @SIZE, [128, 255, 255])
 	end
 end
 

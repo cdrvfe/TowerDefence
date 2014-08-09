@@ -8,8 +8,7 @@ class Field
 	def initialize()
 		# 15*15のフィールド
 		@SIZE=15
-		@mass = Array.new(@SIZE){Array.new(@SIZE){Unit.new()}}
- 
+		@mass = Array.new(@SIZE){|x| Array.new(@SIZE){|y| Unit.new(x, y)}}
 	end
 
 	def draw(screen)
