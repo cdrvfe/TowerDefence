@@ -1,4 +1,4 @@
-require './core.rb'
+require './Core.rb'
 
 class TestCore < Core
   def update
