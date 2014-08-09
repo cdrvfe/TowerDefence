@@ -1,23 +1,22 @@
 # Fieldクラス
 
 require "sdl"
+require "./Unit.rb"
 
 class Field
-	# 15*15のフィールド
-	@SIZE=15
-	@mass = Array.new(@SIZE){Array.new(@SIZE)}
 
 	def initialize()
-		@SIZE.times do |x|
-			@SIZE.times do |y|
-				@mass[x][y] = Unit.new()
-			end
-		end 
+		# 15*15のフィールド
+		@SIZE=15
+		@mass = Array.new(@SIZE){Array.new(@SIZE){Unit.new()}}
+ 
 	end
 
 	def draw(screen)
-		@mass.each do |mass|
-			mass.draw(screen)
+		@mass.each do |line|
+			line.each do |m|
+				m.draw(screen)
+			end
 		end
 	end
 end
@@ -28,6 +27,8 @@ end
 
 # field = Field.new()
 # field.draw(screen)
+
+# screen.update_rect(0, 0, 0, 0)
 
 # sleep(2)
 # drawテスト用コードここまで
