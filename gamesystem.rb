@@ -23,6 +23,9 @@ private
 	    end
       end
 
+	  @core.update
+	  @core.draw(@screen)
+
       @screen.flip
       sleep(0.06)
     end
