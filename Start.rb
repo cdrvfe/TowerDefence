@@ -1,5 +1,5 @@
-require './gamesystem'
-require './testcore'
+require './GameSystem'
+require './TestCore'
 
 
 SCREEN_WIDTH = 640
