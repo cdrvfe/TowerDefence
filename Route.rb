@@ -11,5 +11,5 @@ class Route
 
 		@direction = [3,0,0,2,0,0,1,0,0,4,0,0]
 	end
-	attr_reader :direction
+	attr_reader :startX, :startY, :endX, :endY, :direction
 end
