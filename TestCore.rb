@@ -10,6 +10,7 @@ class TestCore < Core
 	end
 
 	def update
+		@enemy.update
 	end
 
 	def draw(screen)
