@@ -10,18 +10,14 @@ class Attack
 	end
 
 	def draw(screen)
-		if time == 0
+		if @time == 0
 			r=12
-			screen.fill_rect(@x, @y, r, [128, 255, 255])		
+			screen.fill_rect(@x, @y, r, r, [128, 255, 255])		
 		end
 	end
 
 	def update
-		time--
-		if time == 0
-			return true
-		end
-		return false
+		@time-=1
 	end
 end
 
