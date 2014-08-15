@@ -7,7 +7,7 @@ require './Route.rb'
 class TestCore < Core
 
 	def initialize
-		@field = Field.new
+		@field = Field.new("./stage/Test.txt")
 		@enemy = Enemy.new(Route.new("./route/TestStage.txt"))
 		@attack = Attack.new(1,1)
 	end
