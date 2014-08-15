@@ -2,13 +2,21 @@
 
 require "sdl"
 require "./Unit.rb"
+require "./ReadFileModule.rb"
 
 class Field
 
-	def initialize()
-		# 15*15のフィールド
-		@SIZE=15
-		@mass = Array.new(@SIZE){|x| Array.new(@SIZE){|y| Unit.new(x, y)}}
+	def initialize(filepath)
+		load_map(filepath)
+	end
+
+	def load_map(filepath)
+		filedata = ReadFileModule.read_text(filepath)
+
+		@width  = filedata[0].to_i
+		@height = filedata[1].to_i
+
+		@mass = Array.new(@width){|x| Array.new(@height){|y| Unit.new(x, y)}}
 	end
 
 	def draw(screen)
@@ -21,13 +29,13 @@ class Field
 end
 
 # drawテスト用コードここから
-# SDL.init(SDL::INIT_EVERYTHING)
-# screen = SDL.set_video_mode(640, 480, 16, SDL::SWSURFACE)
+SDL.init(SDL::INIT_EVERYTHING)
+screen = SDL.set_video_mode(640, 480, 16, SDL::SWSURFACE)
 
-# field = Field.new()
-# field.draw(screen)
+field = Field.new("stage/Test.txt")
+field.draw(screen)
 
-# screen.update_rect(0, 0, 0, 0)
+screen.update_rect(0, 0, 0, 0)
 
-# sleep(2)
+sleep(2)
 # drawテスト用コードここまで
