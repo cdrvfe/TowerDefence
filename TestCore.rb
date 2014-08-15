@@ -2,6 +2,7 @@ require './Core.rb'
 require './Field.rb'
 require './Enemy.rb'
 require './Attack.rb'
+require './Route.rb'
 
 class TestCore < Core
 
