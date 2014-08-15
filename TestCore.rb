@@ -8,7 +8,7 @@ class TestCore < Core
 
 	def initialize
 		@field = Field.new
-		@enemy = Enemy.new(Route.new)
+		@enemy = Enemy.new(Route.new("./route/TestStage.txt"))
 		@attack = Attack.new(1,1)
 	end
 
