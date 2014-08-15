@@ -22,7 +22,7 @@ class Route
 		@endX = filedata[2].to_i
 		@endY = filedata[3].to_i
 
-		@direction = filedata[4].csv2ints(filedata[4])
+		@direction = ReadFileModule.csv2ints(filedata[4])
 	end
 
 	attr_reader :startX, :startY, :endX, :endY, :direction
