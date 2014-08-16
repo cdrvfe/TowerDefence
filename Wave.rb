@@ -1,11 +1,9 @@
 # encoding: utf-8
 
-require './Route.rb'
-
 class Wave
 	attr_reader :isActive
 
-	def initialize(route)
+	def initialize()
 		@isActive = true
 		@count = 0
 		@nowTime = 0
