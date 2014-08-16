@@ -1,8 +1,9 @@
 require './Route.rb'
 
 class Enemy
+	attr_reader :isActive
 
-	def initialize(route)
+	def activate(route)
 		@isActive = true
 		@SIZE = 24
 		@DX = [0, 0, 1, 0, -1]

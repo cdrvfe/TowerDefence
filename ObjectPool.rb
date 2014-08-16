@@ -1,23 +1,32 @@
 class ObjectPool
-	def initialize()
+	def initialize
 		@objects_hash = Hash.new
 	end
 
 	def addClass(class_object)
 		unless @objects_hash.key?(class_object)
-			require './' + class_object.class + '.rb'
+			#require './' + class_object.class + '.rb'
 			@objects_hash[class_object] = Array.new
 		end
 	end
 
-	def getInstance(class_object)
-		next_array = Array.new
-		
-		@objects_hash[class_object].each{ |object|
-			if _isOccupied(object)?
+	def getArray(class_object)
+		has_key = @objects_hash.key?(class_object)
+		has_key ? @objects_hash[class_object] : null
+	end
+
+	def createInstance(class_object)
+		@objects_hash[class_object].each do |object|
+			if _isOccupied?(object)
 				_occupy(object)
+				return object
 			end
-		}
+		end
+
+		object = class_object.new
+		@objects_hash[class_object].push(object)
+		_occupy(object)
+		return object
 	end
 
 	def _isOccupied?(object)
