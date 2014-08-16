@@ -17,7 +17,7 @@ class ObjectPool
 
 	def createInstance(class_object)
 		@objects_hash[class_object].each do |object|
-			if _isOccupied?(object)
+			unless _isOccupied?(object)
 				_occupy(object)
 				return object
 			end

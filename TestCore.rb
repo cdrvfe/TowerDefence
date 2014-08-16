@@ -4,6 +4,7 @@ require './Enemy.rb'
 require './Attack.rb'
 require './Route.rb'
 require './GameObjectPool.rb'
+require './Wave.rb'
 
 class TestCore < Core
 
@@ -14,15 +15,17 @@ class TestCore < Core
 		#オブジェクトプール設定
 		@gop = GameObjectPool.new
 		@gop.addClass(Enemy)
+
+		#wave生成（暫定
+		@wave = Wave.new('wave/Test.txt')
 		
-		#敵生成（暫定
-		route = Route.new("./route/TestStage.txt")
-		for i in 0...5
-			@gop.activateObject(Enemy, [route])
-		end
+		#ルート生成（暫定
+		@route = Route.new("./route/TestStage.txt")
 	end
 
 	def update
+		@wave.update(@gop, @route)
+
 		@gop.getArray(Enemy).each{|enemy|
 			enemy.update
 		}
