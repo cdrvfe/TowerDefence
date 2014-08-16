@@ -1,8 +1,7 @@
 require './Route.rb'
+require './GameBaseObject.rb'
 
-class Enemy
-	attr_reader :isActive
-
+class Enemy < GameBaseObject
 	def activate(route)
 		@isActive = true
 		@SIZE = 24

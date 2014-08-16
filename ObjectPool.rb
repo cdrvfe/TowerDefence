@@ -5,7 +5,6 @@ class ObjectPool
 
 	def addClass(class_object)
 		unless @objects_hash.key?(class_object)
-			#require './' + class_object.class + '.rb'
 			@objects_hash[class_object] = Array.new
 		end
 	end
