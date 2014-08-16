@@ -1,8 +1,8 @@
 require './Route.rb'
+require './GameBaseObject.rb'
 
-class Enemy
-
-	def initialize(route)
+class Enemy < GameBaseObject
+	def activate(route)
 		@isActive = true
 		@SIZE = 24
 		@DX = [0, 0, 1, 0, -1]

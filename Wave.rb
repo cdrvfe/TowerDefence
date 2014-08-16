@@ -26,11 +26,12 @@ class Wave
 		end
 	end
 
-	def update
+	def update(pool, route)
 		if(@isActive)
 			@nowTime += 1
-			if(@nowTime == @enemyTime[count])
+			if(@nowTime == @enemyTime[@count])
 				# オブジェクトプールに敵生成をなげる
+				pool.activateObject(Enemy, [route])
 				@count += 1
 			end
 			if(@enemyTime.length <= @count)
