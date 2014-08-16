@@ -1,6 +1,6 @@
 class GameBaseObject
 	attr_reader :isActive
 	def initialize
-		@isActive = true
+		@isActive = false
 	end
 end
