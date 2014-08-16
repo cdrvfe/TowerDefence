@@ -1,16 +1,29 @@
 # encoding: utf-8
-
-require './Route.rb'
+require "./ReadFileModule.rb"
 
 class Wave
 	attr_reader :isActive
 
-	def initialize(route)
+	def initialize(filepath)
 		@isActive = true
 		@count = 0
 		@nowTime = 0
 		@enemyTime = [30,60,120,150,180]
 		@enemyId = [1,1,1,1,1]
+
+		createWaveFromFile(filepath)
+	end
+
+	def createWaveFromFile(filepath)
+		filedata = ReadFileModule.read_text(filepath)
+		@enemyTime.clear
+		@enemyId.clear
+
+		filedata.each do |line|
+			waveData = ReadFileModule.csv2ints(line)
+			@enemyId.push(waveData[0])
+			@enemyTime.push(waveData[1])
+		end
 	end
 
 	def update
@@ -39,5 +52,4 @@ Waveファイルの仕様:
 	id,time
 	id,time
 	...みたいな感じ
-	ジントニック
 =end
